@@ -1,5 +1,8 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { RiRobot2Fill } from "react-icons/ri";
 
 export const Main = () => {
   return (
@@ -49,6 +52,17 @@ export const Main = () => {
         >
           Read our docs
         </a>
+
+        <RiRobot2Fill size={32} />
+        <Button variant="outline">
+          <Link
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </Link>
+        </Button>
       </div>
     </main>
   );
