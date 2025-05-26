@@ -1,10 +1,14 @@
-import { Main, Footer } from "@/components";
+import { RiRobot2Fill } from "react-icons/ri";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-10 gap-16 sm:pb-10 font-[family-name:var(--font-geist-sans)]">
-      <Main />
-      <Footer />
-    </div>
+    <main className="flex flex-col gap-4 justify-center items-center flex-grow p-4">
+      <RiRobot2Fill size={42} />
+      <div className="flex gap-2 items-center">
+        <h1 className="text-xl sm:text-2xl font-bold text-center">
+          Hi there! How can I help you today?
+        </h1>
+      </div>
+    </main>
   );
 }
