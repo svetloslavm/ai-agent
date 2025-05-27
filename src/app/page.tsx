@@ -1,6 +1,6 @@
-import { Hero } from "@/components";
+import { Hero, TextArea } from "@/components";
 import { createClient } from "@/utils/supabase/server";
-//import { RiRobot2Fill } from "react-icons/ri";
+import { BsRobot } from "react-icons/bs";
 
 export default async function AppPage() {
   const supabase = await createClient();
@@ -14,14 +14,16 @@ export default async function AppPage() {
   }
 
   return (
-    <main className="flex-1 flex flex-col gap-6 px-4 items-center">
-      <h1 className="font-medium text-xl mb-4">Protected</h1>
-      {/*<RiRobot2Fill size={42} />
-      <div className="flex gap-2 items-center">
-        <h1 className="text-xl sm:text-2xl font-bold text-center">
+    <div className="flex-1 flex flex-col gap-2 sm:gap-6 px-4 items-center justify-end w-full max-w-3xl mb-12 sm:mb-16">
+      <div className="flex gap-2 text-center">
+        <BsRobot size={24} />
+        <h1 className="text-md sm:text-xl font-bold text-center text-foreground/80">
           Hi there! How can I help you today?
         </h1>
-      </div>*/}
-    </main>
+      </div>
+      <div className="relative w-full max-w-2xl">
+        <TextArea />
+      </div>
+    </div>
   );
 }

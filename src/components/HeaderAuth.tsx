@@ -1,7 +1,8 @@
-import { signOutAction } from "@/app/actions";
 import Link from "next/link";
-import { Button } from "./ui/button";
+
+import { signOutAction } from "@/app/actions";
 import { createClient } from "@/utils/supabase/server";
+import { Button } from "./ui/button";
 
 export async function HeaderAuth() {
   const supabase = await createClient();

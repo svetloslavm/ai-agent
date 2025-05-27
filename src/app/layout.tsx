@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+import { ThemeProvider } from "next-themes";
+
 import { geistSans } from "@/lib";
 import { metadata as siteMetadata } from "@/config";
-import { ThemeProvider } from "next-themes";
-import { HeaderAuth, ThemeSwitcher } from "@/components";
+import { Footer, HeaderAuth, ThemeSwitcher } from "@/components";
 
 import "./globals.css";
 
@@ -29,16 +30,11 @@ export default function RootLayout({
                 </div>
               </nav>
 
-              <div className="flex flex-col max-w-5xl m-auto">{children}</div>
+              {children}
             </div>
           </main>
 
-          <footer className="p-4 text-center fixed bottom-0 w-full">
-            <p className="text-[12px] text-muted-foreground">
-              AI agent may make mistakes. Please verify information
-              independently.
-            </p>
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
