@@ -10,11 +10,6 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-repo/ai-agent.git
-   cd ai-agent
-   ```
-
 2. Install dependencies:
 
    ```bash
@@ -60,3 +55,7 @@ For more information about Next.js and deployment options, visit:
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Vercel Deployment Guide](https://nextjs.org/docs/app/building-your-application/deploying)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
