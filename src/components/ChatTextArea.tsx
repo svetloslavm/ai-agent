@@ -28,9 +28,11 @@ export const ChatTextArea = () => {
   }, []);
 
   const submitPrompt = useCallback(async () => {
-    resetPrompt();
+    if (isLoading) return;
+
     fetchEmbedding(JSON.stringify({ prompt }));
-  }, [prompt, fetchEmbedding, resetPrompt]);
+    resetPrompt();
+  }, [prompt, isLoading, fetchEmbedding, resetPrompt]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
