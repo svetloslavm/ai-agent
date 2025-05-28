@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { openAiClient } from "@/config";
+import { getCookieKey } from "@/utils";
 
 export async function POST(req: Request) {
-  const isAuthenticated = (await cookies()).get(
-    `${process.env.NEXT_PUBLIC_SUPABASE_COOKIE_KEY}`
-  );
+  const cookieKey = getCookieKey();
+  const isAuthenticated = (await cookies()).get(cookieKey);
 
   if (!isAuthenticated) {
-    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ message: "401 Unauthorized" }, { status: 401 });
   }
 
   const { prompt } = await req.json();
 
   if (!prompt) {
     return NextResponse.json(
-      { message: "Invalid request, missing 'prompt' field." },
+      { message: "422 Invalid request, missing 'prompt' field." },
       { status: 422 }
     );
   }

@@ -30,7 +30,7 @@ export const ChatTextArea = () => {
   const submitPrompt = useCallback(async () => {
     if (isLoading) return;
 
-    fetchEmbedding(JSON.stringify({ prompt }));
+    fetchEmbedding(JSON.stringify(prompt));
     resetPrompt();
   }, [prompt, isLoading, fetchEmbedding, resetPrompt]);
 
