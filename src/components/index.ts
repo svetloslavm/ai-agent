@@ -6,3 +6,4 @@ export * from "./ChatTextArea";
 export * from "./ThemeSwitcher";
 export * from "./Footer";
 export * from "./Loading";
+export * from "./Message";

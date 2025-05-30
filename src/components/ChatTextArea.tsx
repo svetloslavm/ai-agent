@@ -47,8 +47,8 @@ export const ChatTextArea = () => {
   return (
     <>
       <ToastContainer position="top-center" toastStyle={{ width: "100%" }} />
-      <Loading isLoading={isLoading} />
       <div className="relative">
+        <Loading isLoading={isLoading} />
         <Textarea
           className="resize-none h-20 sm:h-25 overflow-y-auto"
           placeholder="Ask me anything..."
