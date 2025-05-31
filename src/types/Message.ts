@@ -1,4 +1,6 @@
-export type Message =
-  | { success: string }
-  | { error: string }
-  | { message: string };
+import { Position } from "@/enums";
+
+export interface Message {
+  message: string;
+  position: Position;
+}

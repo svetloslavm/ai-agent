@@ -5,10 +5,13 @@ import { FormMessage } from "@/components/FormMessage";
 import { SubmitButton } from "@/components/SubmitButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Message } from "@/types";
+import { AuthMessage } from "@/types";
 
-export default async function Login(props: { searchParams: Promise<Message> }) {
+export default async function Login(props: {
+  searchParams: Promise<AuthMessage>;
+}) {
   const searchParams = await props.searchParams;
+
   return (
     <form className="flex-1 flex flex-col min-w-64">
       <h1 className="text-2xl font-medium">Sign in</h1>

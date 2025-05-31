@@ -5,12 +5,13 @@ import { FormMessage } from "@/components/FormMessage";
 import { SubmitButton } from "@/components/SubmitButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Message } from "@/types";
+import { AuthMessage } from "@/types";
 
 export default async function ForgotPassword(props: {
-  searchParams: Promise<Message>;
+  searchParams: Promise<AuthMessage>;
 }) {
   const searchParams = await props.searchParams;
+
   return (
     <>
       <form className="flex-1 flex flex-col w-full gap-2 text-foreground [&>input]:mb-6 min-w-64 max-w-64 mx-auto">
