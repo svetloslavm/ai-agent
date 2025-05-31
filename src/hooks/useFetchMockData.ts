@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Position } from "@/enums";
-import { mockMessages } from "@/mocks";
+// import { Position } from "@/enums";
+// import { mockMessages } from "@/mocks";
 import { Message } from "@/types";
 
 export const useFetchMockData = () => {
@@ -9,12 +9,13 @@ export const useFetchMockData = () => {
   const fetchMessages = (): Promise<Message[]> =>
     new Promise((resolve) => {
       setTimeout(() => {
-        resolve(
-          mockMessages.map((message) => ({
-            ...message,
-            position: message.position as Position,
-          }))
-        );
+        //   resolve(
+        //     mockMessages.map((message) => ({
+        //       ...message,
+        //       position: message.position as Position,
+        //     }))
+        //   );
+        resolve([]);
       }, 1000);
     });
 

@@ -10,3 +10,4 @@ export * from "./Footer";
 export * from "./Loading";
 export * from "./Message";
 export * from "./MessagesList";
+export * from "./StaticPrompts";
