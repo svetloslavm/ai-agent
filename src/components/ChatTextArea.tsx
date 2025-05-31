@@ -1,7 +1,6 @@
 "use client";
 
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { ToastContainer } from "react-toastify";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
 import { Textarea } from "@/components/ui/textarea";
@@ -45,29 +44,26 @@ export const ChatTextArea = () => {
   );
 
   return (
-    <>
-      <ToastContainer position="top-center" toastStyle={{ width: "100%" }} />
-      <div className="relative">
-        <Loading isLoading={isLoading} />
-        <Textarea
-          className="resize-none h-20 sm:h-25 overflow-y-auto"
-          placeholder="Ask me anything..."
-          value={prompt}
-          onChange={handleTextChange}
-          onKeyDown={handleKeyDown}
+    <div className="relative">
+      <Loading isLoading={isLoading} />
+      <Textarea
+        className="resize-none h-20 sm:h-25 overflow-y-auto"
+        placeholder="Ask me anything..."
+        value={prompt}
+        onChange={handleTextChange}
+        onKeyDown={handleKeyDown}
+      />
+      <Button
+        className="absolute bottom-1 right-1 hover:bg-foreground/10 active:bg-foreground/10 transition-colors duration-200 group"
+        variant="link"
+        onClick={submitPrompt}
+        disabled={isButtonDisabled}
+      >
+        <FaLongArrowAltUp
+          size={28}
+          className="transition-transform duration-200 group-hover:scale-125"
         />
-        <Button
-          className="absolute bottom-1 right-1 hover:bg-foreground/10 active:bg-foreground/10 transition-colors duration-200 group"
-          variant="link"
-          onClick={submitPrompt}
-          disabled={isButtonDisabled}
-        >
-          <FaLongArrowAltUp
-            size={28}
-            className="transition-transform duration-200 group-hover:scale-125"
-          />
-        </Button>
-      </div>
-    </>
+      </Button>
+    </div>
   );
 };

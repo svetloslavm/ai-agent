@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
+import { ToastContainer } from "react-toastify";
 
 import { geistSans } from "@/lib";
 import { metadata as siteMetadata } from "@/config";
@@ -30,6 +31,10 @@ export default function RootLayout({
                 </div>
               </nav>
 
+              <ToastContainer
+                position="top-center"
+                toastStyle={{ width: "100%" }}
+              />
               {children}
             </div>
           </main>
