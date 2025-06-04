@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { signOutAction } from "@/app/actions";
 import { createClient } from "@/utils/supabase/server";
+
+import { ThemeSwitcher } from "@/components";
 import { Button } from "./ui/button";
 
 export async function HeaderAuth() {
@@ -13,21 +15,22 @@ export async function HeaderAuth() {
 
   return user ? (
     <div className="flex items-center gap-3">
-      <span className="text-xs sm:text-sm">
+      <ThemeSwitcher />
+      <span className="text-xs">
         Hey, <strong>{user.email}</strong>
       </span>
       <form action={signOutAction}>
-        <Button type="submit" size="sm" variant="outline">
+        <Button type="submit" size="sm" variant="outline" className="text-xs">
           Sign out
         </Button>
       </form>
     </div>
   ) : (
     <div className="flex gap-2">
-      <Button asChild size="sm" variant="outline">
+      <Button asChild size="sm" variant="outline" className="text-xs">
         <Link href="/sign-in">Sign in</Link>
       </Button>
-      <Button asChild size="sm" variant="default">
+      <Button asChild size="sm" variant="default" className="text-xs">
         <Link href="/sign-up">Sign up</Link>
       </Button>
     </div>
