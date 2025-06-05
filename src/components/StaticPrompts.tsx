@@ -1,7 +1,7 @@
 "use client";
 
 import { useEmbedding } from "@/hooks";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui";
 import { staticPrompts } from "@/mocks";
 
 export const StaticPrompts = () => {

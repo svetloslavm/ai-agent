@@ -3,8 +3,7 @@ import Link from "next/link";
 import { signOutAction } from "@/app/actions";
 import { createClient } from "@/utils/supabase/server";
 
-import { ThemeSwitcher } from "@/components";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui";
 
 export async function HeaderAuth() {
   const supabase = await createClient();
@@ -15,7 +14,6 @@ export async function HeaderAuth() {
 
   return user ? (
     <div className="flex items-center gap-3">
-      <ThemeSwitcher />
       <span className="text-xs">
         Hey, <strong>{user.email}</strong>
       </span>

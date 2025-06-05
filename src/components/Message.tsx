@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui";
 import { Position } from "@/enums";
 
 interface Message {

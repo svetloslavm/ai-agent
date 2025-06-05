@@ -3,8 +3,7 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { Textarea, Button } from "@/components/ui";
 import { Loading } from "./Loading";
 import { useEmbedding } from "@/hooks";
 
