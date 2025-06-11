@@ -1,6 +1,6 @@
 import React from "react";
 import { BsRobot } from "react-icons/bs";
-import { StaticPrompts } from "../StaticPrompts";
+import { StaticPrompts } from "@/components/chat";
 
 export const ChatHeader = () => (
   <>
