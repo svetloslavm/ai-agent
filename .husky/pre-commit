@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+PACKAGE_JSON="package.json"
+VERSION=$(grep '"version"' $PACKAGE_JSON | awk -F '"' '{print $4}')
+MAJOR=$(echo $VERSION | awk -F '.' '{print $1}')
+MINOR=$(echo $VERSION | awk -F '.' '{print $2}')
+NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
+
+sed -i "s/\"version\": \"$VERSION\"/\"version\": \"$NEW_VERSION\"/" $PACKAGE_JSON
+echo "Version bumped to $NEW_VERSION"
