@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import { geistSans } from "@/lib";
 import { metadata as siteMetadata } from "@/config";
-import { Footer, HeaderAuth, ThemeSwitcher } from "@/components";
+import { Footer, Header, ThemeSwitcher } from "@/components";
 
 import "./globals.css";
 
@@ -27,7 +27,7 @@ export default function RootLayout({
               <nav className="w-full flex justify-end border-b border-b-foreground/10 h-16">
                 <div className="w-full flex items-center p-3 px-5 text-sm justify-end gap-8">
                   <ThemeSwitcher />
-                  <HeaderAuth />
+                  <Header />
                 </div>
               </nav>
 

@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 
 import { Button } from "@/components/ui";
 
-export async function HeaderAuth() {
+export async function Header() {
   const supabase = await createClient();
 
   const {

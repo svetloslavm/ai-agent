@@ -4,7 +4,7 @@ import React, { ChangeEvent, useCallback, useState } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
 import { Textarea, Button } from "@/components/ui";
-import { Loading } from "./Loading";
+import { Loading } from "@/components/common";
 import { useEmbedding } from "@/hooks";
 
 export const ChatTextArea = () => {
