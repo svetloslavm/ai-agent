@@ -49,6 +49,32 @@ To run the project locally, follow these steps:
 - **Vercel Deployment**: Ready for deployment on the Vercel platform.
 - **Supabase Authentication**: Supports user authentication via email and magic link for secure and seamless login.
 
+## Version Bumping on Push
+
+This project uses `husky` and `standard-version` to automatically bump the package version on each push commit.
+
+### Setup
+
+1. Install dependencies:
+
+   ```bash
+   npm install husky standard-version --save-dev
+   ```
+
+2. Enable Husky:
+
+   ```bash
+   npx husky install
+   ```
+
+3. Add the `post-push` hook:
+
+   ```bash
+   npx husky add .husky/post-push "npm run postpush"
+   ```
+
+Now, every time you push commits, the package version will be bumped automatically.
+
 ## Additional Resources
 
 For more information about Next.js and deployment options, visit:
