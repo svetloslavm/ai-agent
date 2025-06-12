@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui";
 
 import { LuSun } from "react-icons/lu";
 import { LuMoon } from "react-icons/lu";

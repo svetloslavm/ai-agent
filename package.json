@@ -1,6 +1,6 @@
 {
   "name": "ai-agent",
-  "version": "0.4.0",
+  "version": "0.15.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "cspell": "cspell **/*.{ts,tsx,js,jsx,md}",
+    "prepare": "husky install",
     "store": "tsx src/scripts/storeDocuments.ts"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "cspell": "^9.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "husky": "^8.0.3",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.0",
     "typescript": "^5"

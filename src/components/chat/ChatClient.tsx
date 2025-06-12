@@ -2,8 +2,8 @@
 
 import { useFetchMockData } from "@/hooks/useFetchMockData";
 import { MessagesList } from "./MessagesList";
-import { ChatTextArea } from "./ChatTextArea";
 import { ChatHeader } from "./ChatHeader";
+import { ChatTextArea } from "./ChatTextArea";
 
 export const ChatClient = () => {
   const { messages } = useFetchMockData();

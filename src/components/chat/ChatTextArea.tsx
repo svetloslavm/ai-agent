@@ -3,9 +3,8 @@
 import React, { ChangeEvent, useCallback, useState } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Loading } from "./Loading";
+import { Textarea, Button } from "@/components/ui";
+import { Loading } from "@/components/common";
 import { useEmbedding } from "@/hooks";
 
 export const ChatTextArea = () => {

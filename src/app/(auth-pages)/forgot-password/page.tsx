@@ -1,10 +1,7 @@
 import Link from "next/link";
 
 import { forgotPasswordAction } from "@/app/actions";
-import { FormMessage } from "@/components/FormMessage";
-import { SubmitButton } from "@/components/SubmitButton";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { FormMessage, SubmitButton, Input, Label } from "@/components";
 import { AuthMessage } from "@/types";
 
 export default async function ForgotPassword(props: {

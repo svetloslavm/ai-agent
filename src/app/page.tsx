@@ -1,4 +1,5 @@
-import { ChatClient, Hero } from "@/components";
+import { Hero } from "@/components";
+import { ChatClient } from "@/components/chat";
 import { createClient } from "@/utils/supabase/server";
 
 export default async function AppPage() {
