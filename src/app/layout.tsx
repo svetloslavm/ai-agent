@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { ToastContainer } from "react-toastify";
 
 import { geistSans } from "@/lib";
+import { createClient } from "@/utils/supabase/server";
 import { metadata as siteMetadata } from "@/config";
 import { Footer, Header, ThemeSwitcher } from "@/components";
 
@@ -10,9 +11,25 @@ import "./globals.css";
 
 export const metadata = siteMetadata;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
+  const supabase = await createClient();
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  let user = null;
+
+  if (session) {
+    const { data } = await supabase
+      .from("users")
+      .select()
+      .eq("id", session.user.id)
+      .single();
+    user = data;
+  }
+
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
@@ -27,7 +44,7 @@ export default function RootLayout({
               <nav className="w-full flex justify-end border-b border-b-foreground/10 h-16">
                 <div className="w-full flex items-center p-3 px-5 text-sm justify-end gap-8">
                   <ThemeSwitcher />
-                  <Header />
+                  <Header user={user} />
                 </div>
               </nav>
 
