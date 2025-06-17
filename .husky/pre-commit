@@ -1,20 +1,27 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-PACKAGE_JSON="package.json"
+# Get current branch name
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
 
-VERSION=$(grep '"version"' $PACKAGE_JSON | awk -F '"' '{print $4}')
-MAJOR=$(echo $VERSION | awk -F '.' '{print $1}')
-MINOR=$(echo $VERSION | awk -F '.' '{print $2}')
-NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
+if [ "$CURRENT_BRANCH" = "main" ]; then
+    PACKAGE_JSON="package.json"
 
-# Update package.json
-sed -i "s/\"version\": \"$VERSION\"/\"version\": \"$NEW_VERSION\"/" $PACKAGE_JSON
+    VERSION=$(grep '"version"' $PACKAGE_JSON | awk -F '"' '{print $4}')
+    MAJOR=$(echo $VERSION | awk -F '.' '{print $1}')
+    MINOR=$(echo $VERSION | awk -F '.' '{print $2}')
+    NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
 
-# Regenerate package-lock.json
-npm install
+    # Update package.json
+    sed -i "s/\"version\": \"$VERSION\"/\"version\": \"$NEW_VERSION\"/" $PACKAGE_JSON
 
-# Stage both files
-git add $PACKAGE_JSON package-lock.json
+    # Regenerate package-lock.json
+    npm install
 
-echo "Version bumped to $NEW_VERSION and staged in package.json and package-lock.json."
+    # Stage both files
+    git add $PACKAGE_JSON package-lock.json
+
+    echo "Version bumped to $NEW_VERSION and staged in package.json and package-lock.json."
+else
+    echo "Skipping version bump - not on main branch"
+fi
