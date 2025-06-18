@@ -1,5 +1,5 @@
 import { Hero } from "@/components";
-import { ChatClient } from "@/components/chat";
+import { ChatClientContainer } from "@/components/chat";
 import { createClient } from "@/utils/supabase/server";
 
 export default async function AppPage() {
@@ -13,5 +13,5 @@ export default async function AppPage() {
     return <Hero />;
   }
 
-  return <ChatClient />;
+  return <ChatClientContainer />;
 }
