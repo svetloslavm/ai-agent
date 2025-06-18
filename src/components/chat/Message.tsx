@@ -1,24 +1,21 @@
 import React, { FC } from "react";
 import { Badge } from "@/components/ui";
-import { Position } from "@/enums";
+import { BsRobot } from "react-icons/bs";
+import { Role } from "@/enums";
+import { Message as MessageType } from "@/types";
 
-interface Message {
-  message: string;
-  position: Position;
-}
-
-export const Message: FC<Message> = ({ message, position }) => (
+export const Message: FC<MessageType> = ({ text, role }) => (
   <div
     className={`flex mb-4 ${
-      position === Position.RIGHT ? "justify-end" : "justify-start"
+      role === Role.ASSISTANT ? "justify-end" : "justify-start"
     }`}
   >
     <Badge
-      style={{ display: "inline-block" }}
-      variant={position === Position.RIGHT ? "secondary" : "outline"}
-      className="px-3 py-2 max-w-full break-all whitespace-break-spaces shadow-lg text-xs sm:text-sm text-foreground/80"
+      variant={role === Role.ASSISTANT ? "secondary" : "outline"}
+      className="inline-block px-3 py-2 max-w-full break-words whitespace-break-spaces shadow-lg text-xs sm:text-sm text-foreground/80 text-justify"
     >
-      {message}
+      {role === Role.ASSISTANT && <BsRobot className="inline mb-1 mr-2" />}
+      {text}
     </Badge>
   </div>
 );

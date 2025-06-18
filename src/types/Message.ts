@@ -1,6 +1,6 @@
-import { Position } from "@/enums";
+import { Role } from "@/enums";
 
 export interface Message {
-  message: string;
-  position: Position;
+  text: string;
+  role: Role;
 }

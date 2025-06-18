@@ -1,36 +1,43 @@
 "use client";
 
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, FC, useCallback } from "react";
 import { FaLongArrowAltUp } from "react-icons/fa";
 
 import { Textarea, Button } from "@/components/ui";
 import { Loading } from "@/components/common";
-import { useEmbedding } from "@/hooks";
 
-export const ChatTextArea = () => {
-  const [prompt, setPrompt] = useState("");
+interface ChatTextAreaProps {
+  isLoading: boolean;
+  input: string;
+  setInput: (value: string) => void;
+  sendMessage: () => void;
+}
 
-  const { isLoading, fetchEmbedding } = useEmbedding();
-
-  const isButtonDisabled = !prompt.trim();
+export const ChatTextArea: FC<ChatTextAreaProps> = ({
+  isLoading,
+  input,
+  setInput,
+  sendMessage,
+}) => {
+  const isButtonDisabled = !input.trim();
 
   const handleTextChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
-      setPrompt(e.target.value);
+      setInput(e.target.value);
     },
     []
   );
 
-  const resetPrompt = useCallback(() => {
-    setPrompt("");
+  const resetInput = useCallback(() => {
+    setInput("");
   }, []);
 
   const submitPrompt = useCallback(async () => {
     if (isLoading) return;
 
-    fetchEmbedding(JSON.stringify(prompt));
-    resetPrompt();
-  }, [prompt, isLoading, fetchEmbedding, resetPrompt]);
+    sendMessage();
+    resetInput();
+  }, [isLoading, sendMessage, resetInput]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -44,11 +51,11 @@ export const ChatTextArea = () => {
 
   return (
     <div className="relative">
-      <Loading isLoading={isLoading} />
+      {isLoading && <Loading />}
       <Textarea
         className="resize-none h-20 sm:h-25 overflow-y-auto"
         placeholder="Ask me anything..."
-        value={prompt}
+        value={input}
         onChange={handleTextChange}
         onKeyDown={handleKeyDown}
       />

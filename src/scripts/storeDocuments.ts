@@ -26,13 +26,28 @@ const vectorStore = new SupabaseVectorStore(embeddings, {
 const documents = [
   new Document({
     pageContent: "Mount Everest is the highest mountain in the world.",
-    metadata: { source: "https://en.wikipedia.org/wiki/Mount_Everest" },
+    metadata: {
+      source: "https://en.wikipedia.org/wiki/Mount_Everest",
+      date: "2025-06-17",
+      category: "geography",
+    },
+  }),
+  new Document({
+    pageContent:
+      "K2 is the second highest mountain in the world, located on the China–Pakistan border in the Karakoram range.",
+    metadata: {
+      source: "https://en.wikipedia.org/wiki/K2",
+      date: "2025-06-18",
+      category: "geography",
+    },
   }),
 ];
 
 (async () => {
   try {
-    await vectorStore.addDocuments(documents, { ids: ["1"] });
+    await vectorStore.addDocuments(documents, {
+      ids: documents.map((_, index) => `${index + 1}`),
+    });
     console.log("Documents added successfully!");
   } catch (error) {
     console.error("Error adding documents:", error);
