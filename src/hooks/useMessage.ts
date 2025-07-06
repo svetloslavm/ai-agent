@@ -1,9 +1,9 @@
-import { useState, useCallback } from "react";
-import { Role } from "@/enums";
-import { Message } from "@/types";
+import { useState, useCallback } from 'react';
+import { Role } from '@/enums';
+import { Message } from '@/types';
 
 export const useMessage = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,8 +15,8 @@ export const useMessage = () => {
         const newHistory = [...messages, userMsg];
         setMessages(newHistory);
 
-        const res = await fetch("/api/chat", {
-          method: "POST",
+        const res = await fetch('/api/chat', {
+          method: 'POST',
           body: JSON.stringify({
             input,
             history: newHistory.map(({ role, text }) => ({
@@ -27,17 +27,14 @@ export const useMessage = () => {
         });
 
         const data = await res.json();
-        setMessages([
-          ...newHistory,
-          { role: Role.ASSISTANT, text: data.output },
-        ]);
+        setMessages([...newHistory, { role: Role.ASSISTANT, text: data.output }]);
       } catch (error) {
-        console.error("Failed to send message:", error);
+        console.error('Failed to send message:', error);
       } finally {
         setIsLoading(false);
       }
     },
-    [messages]
+    [messages],
   );
 
   return { input, messages, isLoading, setInput, sendMessage };

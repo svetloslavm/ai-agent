@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 /* @custom-variant dark (&:is(.dark *)); */
 
@@ -125,7 +125,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-background); 
+  scrollbar-color: var(--color-background);
 }
 
 @layer base {

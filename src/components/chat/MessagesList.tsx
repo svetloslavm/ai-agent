@@ -1,6 +1,6 @@
-import { Message as MessageType } from "@/types";
-import { Message } from "./Message";
-import { FC } from "react";
+import { Message as MessageType } from '@/types';
+import { Message } from './Message';
+import { FC } from 'react';
 
 interface MessagesListProps {
   messages: Array<MessageType>;

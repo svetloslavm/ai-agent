@@ -1,1 +1,1 @@
-export * from "./getCookieKey";
+export * from './getCookieKey';

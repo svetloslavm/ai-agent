@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { ChangeEvent, FC, useCallback } from "react";
-import { FaLongArrowAltUp } from "react-icons/fa";
+import React, { ChangeEvent, FC, useCallback } from 'react';
+import { FaLongArrowAltUp } from 'react-icons/fa';
 
-import { Textarea, Button } from "@/components/ui";
-import { Loading } from "@/components/common";
+import { Textarea, Button } from '@/components/ui';
+import { Loading } from '@/components/common';
 
 interface ChatTextAreaProps {
   isLoading: boolean;
@@ -13,23 +13,15 @@ interface ChatTextAreaProps {
   sendMessage: () => void;
 }
 
-export const ChatTextArea: FC<ChatTextAreaProps> = ({
-  isLoading,
-  input,
-  setInput,
-  sendMessage,
-}) => {
+export const ChatTextArea: FC<ChatTextAreaProps> = ({ isLoading, input, setInput, sendMessage }) => {
   const isButtonDisabled = !input.trim();
 
-  const handleTextChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>) => {
-      setInput(e.target.value);
-    },
-    []
-  );
+  const handleTextChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+  }, []);
 
   const resetInput = useCallback(() => {
-    setInput("");
+    setInput('');
   }, []);
 
   const submitPrompt = useCallback(async () => {
@@ -41,12 +33,12 @@ export const ChatTextArea: FC<ChatTextAreaProps> = ({
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key === "Enter" && !e.shiftKey && !isButtonDisabled) {
+      if (e.key === 'Enter' && !e.shiftKey && !isButtonDisabled) {
         e.preventDefault();
         submitPrompt();
       }
     },
-    [isButtonDisabled, submitPrompt]
+    [isButtonDisabled, submitPrompt],
   );
 
   return (
@@ -65,10 +57,7 @@ export const ChatTextArea: FC<ChatTextAreaProps> = ({
         onClick={submitPrompt}
         disabled={isButtonDisabled}
       >
-        <FaLongArrowAltUp
-          size={28}
-          className="transition-transform duration-200 group-hover:scale-125"
-        />
+        <FaLongArrowAltUp size={28} className="transition-transform duration-200 group-hover:scale-125" />
       </Button>
     </div>
   );

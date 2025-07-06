@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createChain } from "@/lib/chain";
+import { NextRequest, NextResponse } from 'next/server';
+import { createChain } from '@/lib/chain';
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,6 +11,6 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error(err);
 
-    return new NextResponse("Error", { status: 500 });
+    return new NextResponse('Error', { status: 500 });
   }
 }

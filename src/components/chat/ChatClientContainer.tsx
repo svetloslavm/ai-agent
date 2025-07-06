@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
-import { useMessage } from "@/hooks";
-import { MessagesList } from "./MessagesList";
-import { ChatTextArea } from "./ChatTextArea";
-import { ChatStaticPrompts } from "./ChatStaticPrompts";
+import { useCallback } from 'react';
+import { useMessage } from '@/hooks';
+import { MessagesList } from './MessagesList';
+import { ChatTextArea } from './ChatTextArea';
+import { ChatStaticPrompts } from './ChatStaticPrompts';
 
 export const ChatClientContainer = () => {
   const { input, messages, isLoading, setInput, sendMessage } = useMessage();
@@ -25,12 +25,7 @@ export const ChatClientContainer = () => {
         />
       )}
 
-      <ChatTextArea
-        isLoading={isLoading}
-        input={input}
-        setInput={setInput}
-        sendMessage={handleSendMessage}
-      />
+      <ChatTextArea isLoading={isLoading} input={input} setInput={setInput} sendMessage={handleSendMessage} />
     </div>
   );
 };

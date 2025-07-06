@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { signOutAction } from "@/app/actions";
-import { createClient } from "@/utils/supabase/server";
+import { signOutAction } from '@/app/actions';
+import { createClient } from '@/utils/supabase/server';
 
-import { Button } from "@/components/ui";
+import { Button } from '@/components/ui';
 
 export async function Header() {
   const supabase = await createClient();

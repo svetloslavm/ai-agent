@@ -1,18 +1,15 @@
-"use client";
+'use client';
 
-import { FC } from "react";
-import { Button } from "@/components/ui";
-import { staticPrompts } from "@/mocks";
+import { FC } from 'react';
+import { Button } from '@/components/ui';
+import { staticPrompts } from '@/mocks';
 
 interface StaticPromptsProps {
   isLoading: boolean;
   sendMessage: (prompt: string) => void;
 }
 
-export const StaticPrompts: FC<StaticPromptsProps> = ({
-  isLoading,
-  sendMessage,
-}) => (
+export const StaticPrompts: FC<StaticPromptsProps> = ({ isLoading, sendMessage }) => (
   <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4">
     {staticPrompts.map((staticPrompt) => (
       <Button

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // import { Position } from "@/enums";
 // import { mockMessages } from "@/mocks";
-import { Message } from "@/types";
+import { Message } from '@/types';
 
 export const useFetchMockData = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -30,7 +30,7 @@ export const useFetchMockData = () => {
         }
       } catch (error) {
         if (!controller.signal.aborted) {
-          console.error("Failed to fetch messages:", error);
+          console.error('Failed to fetch messages:', error);
         }
       }
     };
