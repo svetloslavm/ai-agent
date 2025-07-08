@@ -6,7 +6,7 @@ The AI Agent project is designed to provide an interactive chat interface powere
 
 ## Demo video
 
-<video src="public/demo_video.mp4" controls width="480" style="border: 4px solid #555; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></video>
+![Demo Animation](public/demo_gif.gif)
 
 ## Getting Started
 
