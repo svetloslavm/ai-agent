@@ -4,6 +4,10 @@
 
 The AI Agent project is designed to provide an interactive chat interface powered by AI embeddings. It allows users to ask questions and receive intelligent responses. The project leverages modern web technologies like Next.js and React, along with AI-powered APIs for embedding and processing user prompts.
 
+## Demo video
+
+<video src="/demo_video.mkv" controls autoplay width="480" style="border: 4px solid #555; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"></video>
+
 ## Getting Started
 
 To run the project locally, follow these steps:
