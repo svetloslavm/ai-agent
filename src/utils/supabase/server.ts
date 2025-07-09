@@ -18,6 +18,7 @@ export const createClient = async () => {
           // The `set` method was called from a Server Component.
           // This can be ignored if you have middleware refreshing
           // user sessions.
+          console.log(error);
         }
       },
     },

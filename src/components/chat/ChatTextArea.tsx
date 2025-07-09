@@ -16,13 +16,16 @@ interface ChatTextAreaProps {
 export const ChatTextArea: FC<ChatTextAreaProps> = ({ isLoading, input, setInput, sendMessage }) => {
   const isButtonDisabled = !input.trim();
 
-  const handleTextChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-  }, []);
+  const handleTextChange = useCallback(
+    (e: ChangeEvent<HTMLTextAreaElement>) => {
+      setInput(e.target.value);
+    },
+    [setInput],
+  );
 
   const resetInput = useCallback(() => {
     setInput('');
-  }, []);
+  }, [setInput]);
 
   const submitPrompt = useCallback(async () => {
     if (isLoading) return;
